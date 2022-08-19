@@ -12,3 +12,6 @@ prepareImage:
 
 push:
 	docker push crojasma/readinglist:0.1
+
+echo:
+	echo "Just an echo"
