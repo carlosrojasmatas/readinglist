@@ -3,21 +3,27 @@ pipeline {
     stages{
         stage('Build'){
             steps{
-                sh 'make echo'
+                sh 'make build'
             }
         }
 
         stage('Test'){
             steps{
-                sh 'echo test'
+                sh 'make test'
+            }
+        }
+
+        stage('Build image'){
+            steps{
+                sh 'make buildImage'
+                sh 'make pushImage'
             }
         }
 
         stage('Deploy'){
             steps{
-                sh 'echo Deploy'
+                sh 'make deploy'
             }
         }
-
     }
 }

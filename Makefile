@@ -7,11 +7,11 @@ build:
 test:
 	./gradlew test
 
-prepareImage:
+buildImage:
 	docker build -t crojasma/readinglist:0.1 docker/Dockerfile .
 
-push:
+pushImage:
 	docker push crojasma/readinglist:0.1
 
-echo:
-	echo "Just an echo"
+deploy:
+	kubectl apply -f k8s/readinglist.yaml
