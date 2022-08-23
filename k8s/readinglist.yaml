@@ -1,7 +1,22 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: ReplicaSet
 metadata:
   name: readingList
 spec:
-  containers:
-    - name:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: readingList
+  template:
+    metadata:
+      labels:
+        app: readingList
+    spec:
+      containers:
+      - name: readingList
+        image: crojasma/readinglist:0.1
+        livenessProbe:
+          httpGet:
+            port: 8080
+            path: /health
+          initialDelaySeconds: 10
