@@ -6,7 +6,7 @@ RUN apk add --no-cache openssh-server && \
     mkdir -p /var/run/sshd && \
     adduser --quiet jenkins && \
     echo "jenkins:jenkins" | chpasswd && \
-    mkdir /home/jenkins/.m2 \
+    mkdir /home/jenkins/.m2
 
 COPY .ssh/authorized_keys /home/jenkins/.ssh/authorized_keys
 
