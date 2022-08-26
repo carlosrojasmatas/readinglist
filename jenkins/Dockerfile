@@ -1,4 +1,4 @@
-FROM amazoncorretto:18-alpine3.15
+FROM amazoncorretto:17-alpine3.15
 
 
 RUN apk add --no-cache openssh-server && \
