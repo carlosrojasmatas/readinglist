@@ -2,7 +2,6 @@ FROM amazoncorretto:17-alpine3.15
 
 
 RUN apk add --no-cache openssh-server && \
-    sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd && \
     mkdir -p /var/run/sshd && \
     adduser --quiet jenkins && \
     echo "jenkins:jenkins" | chpasswd && \
