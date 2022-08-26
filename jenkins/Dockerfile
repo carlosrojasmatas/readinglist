@@ -3,7 +3,7 @@ FROM amazoncorretto:17-alpine3.15
 
 RUN apk add --no-cache openssh-server && \
     mkdir -p /var/run/sshd && \
-    adduser --quiet jenkins && \
+    adduser  jenkins && \
     echo "jenkins:jenkins" | chpasswd && \
     mkdir /home/jenkins/.m2
 
