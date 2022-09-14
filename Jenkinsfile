@@ -21,9 +21,11 @@ pipeline {
         }
 
         stage('Deploy'){
-                withKubeConfig([credentialsId: 'kind-kind', serverUrl: 'http://localhost']) {
+            steps{
+               withKubeConfig([credentialsId: 'kind-kind', serverUrl: 'http://localhost']) {
                   sh 'kubectl apply -f k8s/readinglist.yaml'
                 }
+             }
          }
     }
 }
