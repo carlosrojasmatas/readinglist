@@ -8,7 +8,7 @@ test:
 	./gradlew test
 
 buildImage:
-	docker build -t crojasma/readinglist:0.1 docker/Dockerfile .
+	docker build -t crojasma/readinglist:0.1 -f docker/Dockerfile .
 
 pushImage:
 	docker push crojasma/readinglist:0.1
