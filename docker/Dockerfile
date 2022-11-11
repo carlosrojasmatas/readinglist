@@ -1,4 +1,4 @@
-FROM amazoncorretto:18.0.1
+FROM amazoncorretto:17.0.4
 
 RUN yum install -y shadow-utils && yum clean all && useradd readinglist
 USER readinglist
