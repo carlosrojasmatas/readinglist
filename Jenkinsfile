@@ -15,6 +15,7 @@ pipeline {
 
         stage('Build image'){
             steps{
+                sh 'export workspace = env.workspace'
                 sh 'make buildImage'
                 sh 'make pushImage'
             }
