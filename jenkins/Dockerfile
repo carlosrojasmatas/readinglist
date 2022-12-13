@@ -12,6 +12,6 @@ RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin
 RUN apt-get update && apt-get install -y make inetutils-ping docker-ce-cli vim
 RUN mkdir /var/jenkins_home/.kube
-COPY Dockerfile /var/jenkins_home/.kube/Dockerfile
+#COPY text.txt /var/jenkins_home/
 USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean:1.25.8 docker-workflow:521.v1a_a_dd2073b_2e"
