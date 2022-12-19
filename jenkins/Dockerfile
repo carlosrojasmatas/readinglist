@@ -11,8 +11,7 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin
 RUN apt-get update && apt-get install -y make inetutils-ping docker-ce-cli vim
+RUN usermod -aG docker jenkins
 USER jenkins
 RUN mkdir /var/jenkins_home/.kube
-#COPY text.txt /var/jenkins_home/
-
 RUN jenkins-plugin-cli --plugins "blueocean:1.25.8 docker-workflow:521.v1a_a_dd2073b_2e"
