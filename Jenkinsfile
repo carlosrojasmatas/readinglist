@@ -23,9 +23,7 @@ pipeline {
 
         stage('Deploy'){
             steps{
-               withKubeConfig([credentialsId: 'kind-kind', serverUrl: 'http://localhost']) {
-                  sh 'kubectl apply -f k8s/readinglist.yaml'
-                }
+               kubernetesDeploy(configs: "k8s/readinglist.yaml")
              }
          }
     }
