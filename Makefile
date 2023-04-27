@@ -8,10 +8,10 @@ test:
 	./gradlew test
 
 buildImage:
-	docker build -t crojasma/readinglist:0.1 .
+	kubectl apply --file k8s/kaniko.yaml
 
-pushImage:
-	docker push crojasma/readinglist:0.1
-
-deploy:
-	kubectl apply -f k8s/readinglist.yaml
+#pushImage:
+#	docker push crojasma/readinglist:0.1
+#
+#deploy:
+#	kubectl apply -f k8s/readinglist.yaml
