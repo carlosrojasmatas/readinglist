@@ -22,10 +22,10 @@ pipeline {
             }
         }
 
-        stage('Deploy'){
-            steps{
-               kubernetesDeploy(configs: "k8s/readinglist.yaml")
-             }
-         }
+//         stage('Deploy'){
+//             steps{
+//                kubernetesDeploy(configs: "k8s/readinglist.yaml")
+//              }
+//          }
     }
 }
