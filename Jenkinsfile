@@ -15,10 +15,7 @@ pipeline {
 
         stage('Build image'){
             steps{
-                kubernetesDeploy(configs: "k8s/kaniko.yaml")
-                sh 'export workspace=env.workspace'
-                sh 'make buildImage'
-                sh 'make pushImage'
+                 sh 'kubectl apply -f k8s/kaniko.yaml'
             }
         }
 
