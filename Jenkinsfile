@@ -14,7 +14,8 @@ pipeline {
         }
 
         stage('Build image'){
-            steps{
+
+            withKubeConfig([credentialsId: 'k8s']) {
                  sh 'kubectl apply -f k8s/kaniko.yaml'
             }
         }
