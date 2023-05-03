@@ -14,10 +14,12 @@ pipeline {
         }
 
         stage('Build image'){
-
-            withKubeConfig([credentialsId: 'k8s']) {
-                 sh 'kubectl apply -f k8s/kaniko.yaml'
+            steps{
+                withKubeConfig([credentialsId: 'k8s']) {
+                   sh 'kubectl apply -f k8s/kaniko.yaml'
+                }
             }
+
         }
 
 //         stage('Deploy'){
