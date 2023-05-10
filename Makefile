@@ -6,7 +6,6 @@ d := /opt/homebrew/bin/docker
 all: post-build
 
 pre-build:
-	git clone https://github.com/carlosrojasmatas/readinglist.git
 
 build: pre-build test
 	./gradlew clean bootJar
