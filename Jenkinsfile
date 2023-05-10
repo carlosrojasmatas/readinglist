@@ -23,8 +23,7 @@ pipeline {
                             string(defaultValue: '1.0', name: 'NUMBER', trim: true)
                         ]
                     )
-//                     dockerImage = docker.build registry + "${version.NUMBER}"
-                    echo "Input: ${version.NUMBER}"
+                    echo "Input: ${version}"
                 }
             }
         }
