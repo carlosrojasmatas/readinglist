@@ -22,10 +22,7 @@ pipeline {
 
         stage('Publish image'){
             steps{
-                withDockerRegistry(credentialsId: registryCredential) {
-                    input id: 'Build_id', message: 'Enter Build Version', parameters: [string(defaultValue: '1..0', name: 'BUILD_VERSION', trim: true)]
                     dockerImag push
-                }
             }
          }
 
