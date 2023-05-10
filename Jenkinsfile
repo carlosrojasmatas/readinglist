@@ -15,9 +15,9 @@ pipeline {
 
         stage('Build image'){
             steps{
-                input(id: 'Build_id',message: 'Enter Build Version',parameters: [string(defaultValue: '1.0', name: 'NUMBER', trim: true)])
                 script{
-                    dockerImage = docker.build registry + "${NUMBER}"
+                    def version = input(id: 'Build_id',message: 'Enter Build Version',parameters: [string(defaultValue: '1.0', name: 'NUMBER', trim: true)])
+                    dockerImage = docker.build registry + "${version.NUMBER}"
                 }
             }
         }
