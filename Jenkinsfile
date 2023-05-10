@@ -17,7 +17,7 @@ pipeline {
             steps{
                 input(id: 'Build_id',message: 'Enter Build Version',parameters: [string(defaultValue: '1..0', name: 'BUILD_VERSION', trim: true)])
                 script{
-                    dockerImage = docker.build registry + $BUILD_VERSION
+                    dockerImage = docker.build registry + ${BUILD_VERSION}
                 }
             }
         }
