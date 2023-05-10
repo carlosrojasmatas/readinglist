@@ -15,14 +15,16 @@ pipeline {
 
         stage('Build image'){
             steps{
-                    input id: 'Build_id', message: 'Enter Build Version', parameters: [string(defaultValue: '1..0', name: 'BUILD_VERSION', trim: true)]
+                input(id: 'Build_id',message: 'Enter Build Version',parameters: [string(defaultValue: '1..0', name: 'BUILD_VERSION', trim: true)])
+                script{
                     dockerImage = docker build + $BUILD_VERSION
+                }
             }
         }
 
         stage('Publish image'){
             steps{
-                    dockerImag push
+                  dockerImage push
             }
          }
 
