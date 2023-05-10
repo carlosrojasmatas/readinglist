@@ -15,26 +15,19 @@ pipeline {
 
         stage('Build image'){
             steps{
-                script {
-                        def userInput = input(
-                            id: 'userInput',
-                            message: 'Please provide input',
-                            parameters: [
-                                string(name: 'NAME', defaultValue: 'John Doe', description: 'Your name'),
-                                choice(name: 'COLOR', choices: ['Red', 'Blue', 'Green'], description: 'Favorite color')
-                            ]
-                        )
-                        echo "User input: ${userInput.NAME}"
-                        echo "Favorite color: ${userInput.COLOR}"
-                    }
+                script{
+                    def version = input(id: 'Build_id',message: 'Enter Build Version',parameters: [string(defaultValue: '1.0', name: 'NUMBER', trim: true)])
+//                     dockerImage = docker.build registry + "${version.NUMBER}"
+                    echo "Input: ${version.NUMBER}"
+                }
             }
         }
 
-        stage('Publish image'){
-            steps{
-                  dockerImage push
-            }
-         }
+//         stage('Publish image'){
+//             steps{
+//                   dockerImage push
+//             }
+//          }
 
     }
 }
