@@ -30,7 +30,7 @@ public class HealthCheck {
     @ResponseBody
     @RequestMapping(value = "/",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public HealthResponse health(){
-        return HealthResponse.create("running");
+é        return HealthResponse.create("running");
 
     }
 }
