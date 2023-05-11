@@ -24,7 +24,7 @@ pipeline {
                         ]
                     )
                     dockerImage = docker.build(registry + ":${version}")
-                    dockerImage.push
+                    dockerImage.push()
                 }
             }
         }
