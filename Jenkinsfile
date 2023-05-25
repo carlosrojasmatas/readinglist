@@ -24,7 +24,11 @@ pipeline {
                         ]
                     )
                     dockerImage = docker.build(registry + ":${version}")
-                    dockerImage.push()
+                    docker.withRegistry('', registryCredential) {
+                          dockerImage.push()
+                    }
+
+
                 }
             }
         }
