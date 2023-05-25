@@ -6,6 +6,10 @@ pipeline {
         dockerImage = ''
     }
     agent any
+    tools {
+            jdk 'jdk_17'
+        }
+
     stages{
         stage('Build'){
             steps{

@@ -2,13 +2,20 @@ package com.spia.readinglist.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
-class Reader implements UserDetails {
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+public class Reader implements UserDetails {
 
     @Id
     private String userName;
@@ -65,5 +72,18 @@ class Reader implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Reader reader = (Reader) o;
+        return userName != null && Objects.equals(userName, reader.userName);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }
