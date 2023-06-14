@@ -16,7 +16,6 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 public class Reader implements UserDetails {
 
     @Id
@@ -28,6 +27,7 @@ public class Reader implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new SimpleGrantedAuthority("READER"));
     }
+
 
     @Override
     public String getPassword() {

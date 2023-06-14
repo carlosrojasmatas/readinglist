@@ -10,9 +10,9 @@
         <dt class="bookHeadline">
             <a th:href="'http://www.amazon.com/gp/product/'
                         + ${book.isbn}
-                        + '/tag=' + ${amazonID}'"
+                        + '/tag=' + ${amazonID}"
                th:text="${book.title}">Title</a>
-            <span th:text="${book.author}">Author</span>
+            by <span th:text="${book.author}">Author</span>
             (ISBN: <span th:text="${book.isbn}">ISBN</span>)
         </dt>
         <dd class="bookDescription">
